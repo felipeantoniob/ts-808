@@ -14,6 +14,7 @@ const VolumeSlider = () => {
       <h2 className="mt-8 text-center text-2xl text-orange-500">Volume</h2>
       <div className="mx-auto mt-4 max-w-md">
         <input
+          aria-label="Volume slider"
           data-testid="input"
           type="range"
           step="0.01"
