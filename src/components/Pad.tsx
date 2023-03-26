@@ -26,15 +26,15 @@ const Pad = ({ ...pad }: PadProps) => {
   }
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === pad.code) {
+    const handleKeyDown = (e: KeyboardEvent, code: string) => {
+      if (e.code === code) {
         if (e.repeat) return
         playSound()
       }
     }
-    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('keydown', (e) => handleKeyDown(e, pad.code))
     return () => {
-      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('keydown', (e) => handleKeyDown(e, pad.code))
     }
   }, [pad.code])
 
